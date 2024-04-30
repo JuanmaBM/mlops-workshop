@@ -1,0 +1,19 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  name: aws-connection-mlops-workshop-bucket
+  namespace: mlops-workshop
+  labels:
+    opendatahub.io/dashboard: 'true'
+    opendatahub.io/managed: 'true'
+  annotations:
+    opendatahub.io/connection-type: s3
+    openshift.io/display-name: mlops-workshop-bucket
+data:
+  AWS_ACCESS_KEY_ID: bWluaW8=
+  AWS_DEFAULT_REGION: ''
+  AWS_S3_BUCKET: bWxvcHMtd29ya3Nob3A=
+  AWS_S3_ENDPOINT: aHR0cDovL21pbmlvLW1sLXdvcmtzaG9wLnN2Yy5jbHVzdGVyLmxvY2Fs
+  AWS_SECRET_ACCESS_KEY: bWluaW8xMjM=
+type: Opaque
+

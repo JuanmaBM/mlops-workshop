@@ -1,0 +1,11 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  name: storage-config
+  namespace: mlops-workshop
+  labels:
+    opendatahub.io/managed: 'true'
+data:
+  aws-connection-mlops-workshop-bucket: eyJhY2Nlc3Nfa2V5X2lkIjoibWluaW8iLCJidWNrZXQiOiJtbG9wcy13b3Jrc2hvcCIsImRlZmF1bHRfYnVja2V0IjoibWxvcHMtd29ya3Nob3AiLCJlbmRwb2ludF91cmwiOiJodHRwOi8vbWluaW8tbWwtd29ya3Nob3Auc3ZjLmNsdXN0ZXIubG9jYWwiLCJyZWdpb24iOiIiLCJzZWNyZXRfYWNjZXNzX2tleSI6Im1pbmlvMTIzIiwidHlwZSI6InMzIn0=
+type: Opaque
+
