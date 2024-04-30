@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: resources
+  namespace: openshift-gitops
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: resources
+    repoURL: https://github.com/JuanmaBM/mlops-workshop.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated: {}
