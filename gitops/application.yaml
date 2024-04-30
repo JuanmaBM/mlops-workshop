@@ -1,0 +1,10 @@
+project: default
+source:
+  repoURL: 'https://github.com/JuanmaBM/mlops-workshop.git'
+  path: rhai-workbench
+  targetRevision: HEAD
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: mlops-workshop
+syncPolicy:
+  automated: {}
