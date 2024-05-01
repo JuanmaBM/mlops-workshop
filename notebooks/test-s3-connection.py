@@ -14,7 +14,7 @@ file = open(f"{FILE_ON_DISK}", "w")
 file.write("Hello S3 Bucket! \n")
 file.close()
  
-s3 = boto3.resource('s3',endpoint_url = AWS_S3_ENDPOINT + ":9000",
+s3 = boto3.resource('s3',endpoint_url = AWS_S3_ENDPOINT,
                     aws_access_key_id=AWS_ACCESS_KEY_ID,
                     aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
  
