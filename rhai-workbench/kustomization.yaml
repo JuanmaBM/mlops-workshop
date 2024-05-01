@@ -4,5 +4,4 @@ kind: Kustomization
 resources:
   - aws-connection-mlops-workshop-bucket.yaml
   - mlops-workshop-storage.yaml
-  - storage-config.yaml
   - notebook.yaml
