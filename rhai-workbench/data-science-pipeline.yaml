@@ -1,0 +1,47 @@
+apiVersion: datasciencepipelinesapplications.opendatahub.io/v1alpha1
+kind: DataSciencePipelinesApplication
+metadata:
+  finalizers:
+    - datasciencepipelinesapplications.opendatahub.io/finalizer
+  name: pipelines-definition
+  namespace: mlops-workshop
+spec:
+  apiServer:
+    stripEOF: true
+    dbConfigConMaxLifetimeSec: 120
+    applyTektonCustomResource: true
+    deploy: true
+    enableSamplePipeline: false
+    autoUpdatePipelineDefaultVersion: true
+    archiveLogs: false
+    terminateStatus: Cancelled
+    enableOauth: true
+    trackArtifacts: true
+    collectMetrics: true
+    injectDefaultScript: true
+  database:
+    disableHealthCheck: false
+    mariaDB:
+      deploy: true
+      pipelineDBName: mlpipeline
+      pvcSize: 10Gi
+      username: mlpipeline
+  mlmd:
+    deploy: false
+  objectStorage:
+    disableHealthCheck: false
+    externalStorage:
+      bucket: mlops-workshop
+      host: 'minio-ml-workshop.minio-system.svc.cluster.local:9000'
+      port: ''
+      s3CredentialsSecret:
+        accessKey: AWS_ACCESS_KEY_ID
+        secretKey: AWS_SECRET_ACCESS_KEY
+        secretName: secret-pc82tt
+      scheme: http
+  persistenceAgent:
+    deploy: true
+    numWorkers: 2
+  scheduledWorkflow:
+    cronScheduleTimezone: UTC
+    deploy: true

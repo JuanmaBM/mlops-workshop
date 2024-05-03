@@ -1,0 +1,203 @@
+{
+  "doc_type": "pipeline",
+  "version": "3.0",
+  "json_schema": "http://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-v3-schema.json",
+  "id": "elyra-auto-generated-pipeline",
+  "primary_pipeline": "primary",
+  "pipelines": [
+    {
+      "id": "primary",
+      "nodes": [
+        {
+          "id": "a155f47b-8773-4175-9d10-17fdf26ef781",
+          "type": "execution_node",
+          "op": "execute-notebook-node",
+          "app_data": {
+            "component_parameters": {
+              "pipeline_parameters": [
+                "model_version"
+              ],
+              "dependencies": [],
+              "include_subdirectories": false,
+              "outputs": [],
+              "env_vars": [
+                {
+                  "env_var": "AWS_S3_BUCKET",
+                  "value": "mlops-workshop"
+                },
+                {
+                  "env_var": "AWS_ACCESS_KEY_ID"
+                },
+                {
+                  "env_var": "AWS_SECRET_ACCESS_KEY"
+                },
+                {
+                  "env_var": "AWS_S3_ENDPOINT",
+                  "value": "http://minio-ml-workshop.minio-system.svc.cluster.local:9000/"
+                }
+              ],
+              "kubernetes_pod_annotations": [],
+              "kubernetes_pod_labels": [],
+              "kubernetes_secrets": [],
+              "kubernetes_shared_mem_size": {},
+              "kubernetes_tolerations": [],
+              "mounted_volumes": [],
+              "filename": "upload-model.ipynb",
+              "runtime_image": "quay.io/modh/runtime-images@sha256:b0045dc104587a6c6d5689db83c2fd4f4eac5c863969eafd7fae418316b69df1"
+            },
+            "label": "upload-model",
+            "ui_data": {
+              "label": "upload-model",
+              "image": "/notebook/mlops-workshop/hands-recognizer/static/elyra/notebook.svg",
+              "x_pos": 346,
+              "y_pos": 328,
+              "description": "Run notebook file"
+            }
+          },
+          "inputs": [
+            {
+              "id": "inPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Input Port"
+                }
+              },
+              "links": [
+                {
+                  "id": "04c84d78-07da-4175-9f9c-3dc94e4d5343",
+                  "node_id_ref": "ccf48cd3-1d5c-4b8f-8ad2-f74ff59f53f7",
+                  "port_id_ref": "outPort"
+                }
+              ]
+            }
+          ],
+          "outputs": [
+            {
+              "id": "outPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Output Port"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "ccf48cd3-1d5c-4b8f-8ad2-f74ff59f53f7",
+          "type": "execution_node",
+          "op": "execute-notebook-node",
+          "app_data": {
+            "component_parameters": {
+              "dependencies": [],
+              "include_subdirectories": false,
+              "outputs": [
+                "./openvino"
+              ],
+              "env_vars": [
+                {
+                  "env_var": "AWS_S3_ENDPOINT",
+                  "value": "http://minio-ml-workshop.minio-system.svc.cluster.local:9000/"
+                },
+                {
+                  "env_var": "AWS_ACCESS_KEY_ID"
+                },
+                {
+                  "env_var": "AWS_SECRET_ACCESS_KEY"
+                },
+                {
+                  "env_var": "AWS_S3_BUCKET",
+                  "value": "mlops-workshop"
+                }
+              ],
+              "kubernetes_pod_annotations": [],
+              "kubernetes_pod_labels": [],
+              "kubernetes_secrets": [],
+              "kubernetes_shared_mem_size": {},
+              "kubernetes_tolerations": [],
+              "mounted_volumes": [],
+              "filename": "training.ipynb",
+              "runtime_image": "quay.io/modh/runtime-images@sha256:ba76fd74b7595329a23f710485a7701caa0a7b495e60c89a23d5338ca13cf2e2"
+            },
+            "label": "trainning",
+            "ui_data": {
+              "label": "trainning",
+              "image": "/notebook/mlops-workshop/hands-recognizer/static/elyra/notebook.svg",
+              "x_pos": 113,
+              "y_pos": 317,
+              "description": "Run notebook file"
+            }
+          },
+          "inputs": [
+            {
+              "id": "inPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Input Port"
+                }
+              }
+            }
+          ],
+          "outputs": [
+            {
+              "id": "outPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Output Port"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "app_data": {
+        "ui_data": {
+          "comments": []
+        },
+        "version": 8,
+        "runtime_type": "KUBEFLOW_PIPELINES",
+        "properties": {
+          "name": "untitled",
+          "runtime": "Data Science Pipelines",
+          "pipeline_parameters": [
+            {
+              "name": "model_version",
+              "description": "",
+              "default_value": {
+                "type": "String",
+                "value": ""
+              },
+              "required": true
+            }
+          ],
+          "pipeline_defaults": {
+            "kubernetes_pod_annotations": [],
+            "mounted_volumes": [],
+            "kubernetes_tolerations": [],
+            "kubernetes_pod_labels": [],
+            "kubernetes_shared_mem_size": {},
+            "kubernetes_secrets": [],
+            "env_vars": []
+          }
+        }
+      },
+      "runtime_ref": ""
+    }
+  ],
+  "schemas": []
+}
