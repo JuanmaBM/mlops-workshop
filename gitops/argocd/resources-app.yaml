@@ -1,15 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: minio
+  name: resources
   namespace: openshift-gitops
 spec:
   destination:
-    namespace: minio-system
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: minio
+    path: gitops/resources
     repoURL: https://github.com/JuanmaBM/mlops-workshop.git
     targetRevision: HEAD
   syncPolicy:

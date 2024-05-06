@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: rhai-workbench
+    path: gitops/rhai-workbench
     repoURL: https://github.com/JuanmaBM/mlops-workshop.git
     targetRevision: HEAD
   syncPolicy:
