@@ -4,7 +4,7 @@ metadata:
   name: rhods-operator
   namespace: redhat-ods-operator
 spec:
-  channel: stable-2.8
+  channel: stable
   name: rhods-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
