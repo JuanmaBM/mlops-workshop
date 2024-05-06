@@ -5,5 +5,5 @@ resources:
   - aws-connection-mlops-workshop-bucket.yaml
   - mlops-workshop-storage.yaml
   - notebook.yaml
-  - data-science-pipeline.yaml
-  - inference-service.yaml
+  #- data-science-pipeline.yaml
+  #- inference-service.yaml
