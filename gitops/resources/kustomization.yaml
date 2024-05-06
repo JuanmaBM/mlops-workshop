@@ -7,3 +7,4 @@ resources:
   - minio-system-project.yaml
   - mlops-workshop-project.yaml
   - data-science-cluster.yaml
+  - redhat-ods-operator-project.yaml
