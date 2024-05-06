@@ -8,3 +8,4 @@ resources:
   - mlops-workshop-project.yaml
   - data-science-cluster.yaml
   - redhat-ods-operator-project.yaml
+  - redhat-ods-operator-group.yaml
