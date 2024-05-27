@@ -4,6 +4,7 @@ metadata:
   annotations:
     openshift.io/description: ''
     openshift.io/display-name: mlops-workshop-storage
+    argocd.argoproj.io/sync-wave: "-2"
   name: mlops-workshop-storage
   namespace: mlops-workshop
   finalizers:

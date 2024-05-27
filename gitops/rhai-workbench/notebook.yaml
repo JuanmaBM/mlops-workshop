@@ -10,6 +10,7 @@ metadata:
     opendatahub.io/username: admin
     openshift.io/description: ""
     openshift.io/display-name: hands-recognizer
+    argocd.argoproj.io/sync-wave: "-1"
   labels:
     app: hands-recognizer
     opendatahub.io/dashboard: "true"

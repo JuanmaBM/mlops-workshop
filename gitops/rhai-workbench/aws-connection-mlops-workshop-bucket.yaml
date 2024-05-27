@@ -9,6 +9,7 @@ metadata:
   annotations:
     opendatahub.io/connection-type: s3
     openshift.io/display-name: mlops-workshop-bucket
+    argocd.argoproj.io/sync-wave: "-2"
 data:
   AWS_ACCESS_KEY_ID: bWluaW8=
   AWS_DEFAULT_REGION: ''
