@@ -7,6 +7,8 @@ metadata:
     app.kubernetes.io/part-of: rhods-operator
     app.kubernetes.io/managed-by: kustomize
     app.kubernetes.io/created-by: rhods-operator
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
   name: default-dsc
 spec:
   components:
