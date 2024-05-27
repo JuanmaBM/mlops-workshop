@@ -4,6 +4,4 @@ metadata:
   labels:
     kubernetes.io/metadata.name: redhat-ods-operator
   name: redhat-ods-operator
-  annotations:
-    argocd.argoproj.io/sync-wave: "-2"
 spec: {}

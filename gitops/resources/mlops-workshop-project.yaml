@@ -3,7 +3,6 @@ kind: Project
 metadata:
   annotations:
     openshift.io/display-name: mlops-workshop
-    argocd.argoproj.io/sync-wave: "-2"
   labels:
     kubernetes.io/metadata.name: mlops-workshop
     opendatahub.io/dashboard: "true"
