@@ -10,7 +10,7 @@ spec:
   backoffLimit: 4
   template:
     spec:
-      containers:
+    initContainers:
       - name: create-bucket
         image: image-registry.openshift-image-registry.svc:5000/redhat-ods-applications/s2i-generic-data-science-notebook:1.2
         imagePullPolicy: IfNotPresent
@@ -26,6 +26,26 @@ spec:
                             aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"))
           bucket = os.getenv("AWS_S3_BUCKET")
           s3.create_bucket(Bucket=bucket)
+          EOF
+      containers:
+      - name: upload-training-data-to-bucket
+        image: image-registry.openshift-image-registry.svc:5000/redhat-ods-applications/s2i-generic-data-science-notebook:1.2
+        imagePullPolicy: IfNotPresent
+        command: ["/bin/bash"]
+        args:
+        - -ec
+        - |-
+          curl -LO https://github.com/JuanmaBM/mlops-workshop/blob/main/training-data/data.zip
+          curl -LO https://github.com/JuanmaBM/mlops-workshop/blob/main/training-data/test.zip
+          cat << 'EOF' | python3
+          import boto3, os
+          s3 = boto3.client("s3",
+                            endpoint_url=os.getenv("AWS_S3_ENDPOINT"),
+                            aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
+                            aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"))
+          bucket = os.getenv("AWS_S3_BUCKET")
+          s3.Bucket(BUCKET).upload_file(data.zip, data.zip)
+          s3.Bucket(BUCKET).upload_file(test.zip, test.zip)
           EOF
         envFrom:
         - secretRef:
