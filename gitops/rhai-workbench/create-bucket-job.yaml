@@ -10,7 +10,7 @@ spec:
   backoffLimit: 4
   template:
     spec:
-    initContainers:
+      initContainers:
       - name: create-bucket
         image: image-registry.openshift-image-registry.svc:5000/redhat-ods-applications/s2i-generic-data-science-notebook:1.2
         imagePullPolicy: IfNotPresent
