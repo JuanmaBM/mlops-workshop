@@ -2,6 +2,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   annotations:
+    argocd.argoproj.io/sync-wave: "1"
     openshift.io/description: ''
     openshift.io/display-name: mlops-workshop-storage
   name: mlops-workshop-storage

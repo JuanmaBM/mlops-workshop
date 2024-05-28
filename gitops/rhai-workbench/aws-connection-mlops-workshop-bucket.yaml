@@ -7,6 +7,7 @@ metadata:
     opendatahub.io/dashboard: 'true'
     opendatahub.io/managed: 'true'
   annotations:
+    argocd.argoproj.io/sync-wave: "1"
     opendatahub.io/connection-type: s3
     openshift.io/display-name: mlops-workshop-bucket
 data:
