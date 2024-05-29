@@ -18,9 +18,8 @@ spec:
         args:
         - -ec
         - |-
-          ls
-          curl -LO https://github.com/JuanmaBM/mlops-workshop/blob/main/training-data/data.zip\?raw\=true
-          curl -LO https://github.com/JuanmaBM/mlops-workshop/blob/main/training-data/test.zip\?raw\=true
+          curl -LO "https://github.com/JuanmaBM/mlops-workshop/blob/main/training-data/data.zip?raw=true"
+          curl -LO "https://github.com/JuanmaBM/mlops-workshop/blob/main/training-data/test.zip?raw=true"
           ls
           cat << 'EOF' | python3
           import boto3, os
