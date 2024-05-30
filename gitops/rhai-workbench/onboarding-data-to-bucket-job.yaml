@@ -39,7 +39,8 @@ spec:
             s3.create_bucket(Bucket=bucket)
           s3.upload_file('data.zip', bucket, 'dataset/data.zip')
           s3.upload_file('test.zip', bucket, 'dataset/test.zip')
-          upload_folder_to_s3('model-1.0.0', BUCKET, 'models/model-1.0.0')
+          upload_folder_to_s3('model-1.0.0', bucket, 'models/model-1.0.0')
+          print("Data onboarding process has finished")
           EOF
         envFrom:
         - secretRef:
