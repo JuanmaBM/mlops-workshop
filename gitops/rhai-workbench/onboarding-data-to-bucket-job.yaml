@@ -1,0 +1,47 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: onboarding-data-to-bucket
+  namespace: mlops-workshop
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  backoffLimit: 4
+  template:
+    spec:
+      containers:
+      - name: upload-training-data-to-bucket
+        image: image-registry.openshift-image-registry.svc:5000/redhat-ods-applications/s2i-generic-data-science-notebook:1.2
+        imagePullPolicy: IfNotPresent
+        command: ["/bin/bash"]
+        args:
+        - -ec
+        - |-
+          curl -Lo "data.zip" "https://github.com/JuanmaBM/mlops-workshop/blob/main/training-data/data.zip?raw=true"
+          curl -Lo "test.zip" "https://github.com/JuanmaBM/mlops-workshop/blob/main/training-data/test.zip?raw=true"
+          curl -Lo "model-1.0.0.zip" "https://github.com/JuanmaBM/mlops-workshop/blob/main/training-data/model-1.0.0.zip?raw=true"
+          unzip model-1.0.0.zip
+          cat << 'EOF' | python3
+            def upload_folder_to_s3(local_folder, bucket_name, object_prefix):
+                for root, dirs, files in os.walk(local_folder):
+                    for file in files:
+                        local_path = os.path.join(root, file)
+                        s3_path = os.path.join(object_prefix, os.path.relpath(local_path, local_folder))
+                        s3.upload_file(local_path, bucket_name, s3_path)
+            import boto3, os
+            s3 = boto3.client("s3",
+                              endpoint_url=os.getenv("AWS_S3_ENDPOINT"),
+                              aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
+                              aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"))
+            bucket = os.getenv("AWS_S3_BUCKET")
+            if bucket not in [bu["Name"] for bu in s3.list_buckets()["Buckets"]]:
+              s3.create_bucket(Bucket=bucket)
+            s3.upload_file('data.zip', bucket, 'dataset/data.zip')
+            s3.upload_file('test.zip', bucket, 'dataset/test.zip')
+            upload_folder_to_s3('model-1.0.0', BUCKET, 'models/model-1.0.0')
+          EOF
+        envFrom:
+        - secretRef:
+            name: aws-connection-mlops-workshop-bucket
+      restartPolicy: Never
