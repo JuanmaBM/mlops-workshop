@@ -3,7 +3,7 @@ kind: DataScienceCluster
 metadata:
   annotations:
     app.kubernetes.io/name: datasciencecluster
-    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/sync-wave: "5"
   name: default-dsc
 spec:
   components:
