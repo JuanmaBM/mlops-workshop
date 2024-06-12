@@ -12,4 +12,6 @@ spec:
     repoURL: https://github.com/JuanmaBM/mlops-workshop.git
     targetRevision: HEAD
   syncPolicy:
-    automated: {}
+    automated:
+      prune: true
+      selfHeal: true
