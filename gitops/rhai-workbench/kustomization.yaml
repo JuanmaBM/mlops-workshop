@@ -8,4 +8,4 @@ resources:
   - onboarding-data-to-bucket-job.yaml
   - serving-runtime.yaml
   - inference-service.yaml
-  #- data-science-pipeline.yaml
+  - data-science-pipeline.yaml
