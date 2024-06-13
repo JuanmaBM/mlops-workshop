@@ -4,6 +4,7 @@ metadata:
   annotations:
     openshift.io/display-name: hands-recognizer
     serving.kserve.io/deploymentMode: ModelMesh
+    app.kubernetes.io/instance: mlops-workshop
   labels:
     opendatahub.io/dashboard: "true"
   name: hands-recognizer
