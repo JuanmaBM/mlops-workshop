@@ -7,5 +7,5 @@ resources:
   - notebook.yaml
   - onboarding-data-to-bucket-job.yaml
   - serving-runtime.yaml
+  - inference-service.yaml
   #- data-science-pipeline.yaml
-  #- inference-service.yaml
