@@ -3,7 +3,7 @@ apiVersion: route.openshift.io/v1
 metadata:
   annotations:
     openshift.io/host.generated: 'true'
-  name: hands-recognizer
+  name: hands-recognizer-model
   namespace: mlops-workshop
   ownerReferences:
     - apiVersion: serving.kserve.io/v1beta1
@@ -14,7 +14,7 @@ metadata:
   labels:
     inferenceservice-name: model
 spec:
-  host: hands-recognizer-mlops-workshop.apps.cluster-t28qp.dynamic.redhatworkshops.io
+  host: hands-recognizer-model-mlops-workshop.apps.cluster-t28qp.dynamic.redhatworkshops.io
   path: /v2/models/model
   to:
     kind: Service

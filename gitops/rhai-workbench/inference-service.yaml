@@ -2,12 +2,12 @@ apiVersion: serving.kserve.io/v1beta1
 kind: InferenceService
 metadata:
   annotations:
-    openshift.io/display-name: hands-recognizer
+    openshift.io/display-name: hands-recognizer-model
     serving.kserve.io/deploymentMode: ModelMesh
     app.kubernetes.io/instance: mlops-workshop
   labels:
     opendatahub.io/dashboard: "true"
-  name: hands-recognizer
+  name: hands-recognizer-model
   namespace: mlops-workshop
 spec:
   predictor:
