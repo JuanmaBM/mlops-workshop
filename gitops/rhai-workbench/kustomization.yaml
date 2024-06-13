@@ -6,5 +6,6 @@ resources:
   - mlops-workshop-storage.yaml
   - notebook.yaml
   - onboarding-data-to-bucket-job.yaml
+  - serving-runtime.yaml
   #- data-science-pipeline.yaml
   #- inference-service.yaml
