@@ -12,7 +12,7 @@ metadata:
     openshift.io/display-name: mlops-workshop-bucket
 data:
   AWS_ACCESS_KEY_ID: bWluaW8=
-  AWS_DEFAULT_REGION: ''
+  AWS_DEFAULT_REGION: ZXUtc291dGgtMg==
   AWS_S3_BUCKET: bWxvcHMtd29ya3Nob3A=
   AWS_S3_ENDPOINT: aHR0cDovL21pbmlvLW1sLXdvcmtzaG9wLm1pbmlvLXN5c3RlbS5zdmMuY2x1c3Rlci5sb2NhbDo5MDAw
   AWS_SECRET_ACCESS_KEY: bWluaW8xMjM=

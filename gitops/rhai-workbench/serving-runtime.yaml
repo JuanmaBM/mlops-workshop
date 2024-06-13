@@ -8,10 +8,10 @@ metadata:
     opendatahub.io/recommended-accelerators: '["nvidia.com/gpu"]'
     opendatahub.io/template-display-name: OpenVINO Model Server
     opendatahub.io/template-name: ovms
-    openshift.io/display-name: Hands-recognizer
+    openshift.io/display-name: mlops-workshop
   labels:
     opendatahub.io/dashboard: "true"
-  name: hands-recognizer
+  name: mlops-workshop
   namespace: mlops-workshop
 spec:
   builtInAdapter:

@@ -1,15 +1,13 @@
-crea un scrip en python que cambie el siguiente la version "0.1.0" por la version "0.2.0" usando expresiones regulares:
 apiVersion: serving.kserve.io/v1beta1
 kind: InferenceService
 metadata:
   annotations:
-    openshift.io/display-name: mlops-workshop-model-0.1.0
+    openshift.io/display-name: hands-recognizer
     serving.kserve.io/deploymentMode: ModelMesh
-  name: mlops-workshop-model-0.1.0
-  namespace: mlops-workshop
   labels:
-    name: mlops-workshop-model-0.1.0
-    opendatahub.io/dashboard: 'true'
+    opendatahub.io/dashboard: "true"
+  name: hands-recognizer
+  namespace: mlops-workshop
 spec:
   predictor:
     model:
@@ -18,5 +16,5 @@ spec:
         version: opset1
       runtime: mlops-workshop
       storage:
-        key: aws-connection-minio-mlops-workshop
-        path: models/model-0.1.0
+        key: aws-connection-mlops-workshop-bucket
+        path: models/model-1.0.0
