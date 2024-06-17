@@ -35,5 +35,5 @@ echo "Configuring operator permissions in the cluster"
 oc apply -f argocd-cluster-role.yaml
 
 # FIXME: This step will be performed in the workshop
-#echo "Creating ArgoCD applications"
-#oc apply -k ../gitops/argocd
+echo "Creating ArgoCD applications"
+oc apply -k ../gitops/argocd
