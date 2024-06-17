@@ -5,6 +5,8 @@ metadata:
     - datasciencepipelinesapplications.opendatahub.io/finalizer
   name: pipelines-definition
   namespace: mlops-workshop
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
 spec:
   apiServer:
     stripEOF: true

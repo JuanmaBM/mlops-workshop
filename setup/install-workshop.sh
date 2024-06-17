@@ -34,6 +34,9 @@ check_operator_status
 echo "Configuring operator permissions in the cluster"
 oc apply -f argocd-cluster-role.yaml
 
+echo "Waiting one minute before create ArgoCD apps in order to complete ArgoCD componentn reconcilliation"
+sleep 60
+
 # FIXME: This step will be performed in the workshop
 echo "Creating ArgoCD applications"
 oc apply -k ../gitops/argocd

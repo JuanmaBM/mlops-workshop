@@ -5,6 +5,7 @@ metadata:
     openshift.io/display-name: hands-recognizer-model
     serving.kserve.io/deploymentMode: ModelMesh
     app.kubernetes.io/instance: mlops-workshop
+    argocd.argoproj.io/sync-wave: "5"
   labels:
     opendatahub.io/dashboard: "true"
   name: hands-recognizer-model

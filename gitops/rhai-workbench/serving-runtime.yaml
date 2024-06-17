@@ -9,6 +9,7 @@ metadata:
     opendatahub.io/template-display-name: OpenVINO Model Server
     opendatahub.io/template-name: ovms
     openshift.io/display-name: mlops-workshop
+    argocd.argoproj.io/sync-wave: "4"
   labels:
     opendatahub.io/dashboard: "true"
   name: mlops-workshop
