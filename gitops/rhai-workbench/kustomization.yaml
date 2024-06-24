@@ -6,6 +6,7 @@ resources:
   - aws-connection-mlops-workshop-bucket.yaml
   - mlops-workshop-storage.yaml
   - onboarding-data-to-bucket-job.yaml
+  - onboarding-clone-repository.yaml
   - notebook.yaml
   - serving-runtime.yaml
   - data-science-pipeline.yaml
