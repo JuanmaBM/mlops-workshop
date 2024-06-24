@@ -1,0 +1,16 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: onboarding-role-binding
+  namespace: mlops-workshop
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+subjects:
+- kind: ServiceAccount
+  name: pod-exec-viewer
+  namespace: mlops-workshop
+roleRef:
+  kind: Role
+  name: pod-exec-role
+  apiGroup: rbac.authorization.k8s.io
