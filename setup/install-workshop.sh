@@ -40,3 +40,13 @@ sleep 60
 # FIXME: This step will be performed in the workshop
 echo "Creating ArgoCD applications"
 oc apply -k ../gitops/argocd
+
+
+echo "ArgoCD route:"
+print "https://$(oc get route -n openshift-gitops openshift-gitops-server -o jsonpath='{.spec.host}')"
+
+echo "Admin ArgoCD password:"
+oc extract secret/openshift-gitops-cluster -n openshift-gitops --to=-
+
+echo "RHAI dashboard:
+print "https://$(oc get route -n openshift-gitops openshift-gitops-server -o jsonpath='{.spec.host}')"
