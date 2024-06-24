@@ -4,7 +4,7 @@ metadata:
   annotations:
     openshift.io/display-name: hands-recognizer-model
     serving.kserve.io/deploymentMode: ModelMesh
-    argocd.argoproj.io/sync-wave: "5"
+    argocd.argoproj.io/sync-wave: "6"
   labels:
     opendatahub.io/dashboard: "true"
   name: hands-recognizer-model
