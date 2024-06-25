@@ -41,12 +41,14 @@ sleep 60
 echo "Creating ArgoCD applications"
 oc apply -k ../gitops/argocd
 
+echo "Waiting two minute before get workshop information"
+sleep 120
 
 echo "ArgoCD route:"
-print "https://$(oc get route -n openshift-gitops openshift-gitops-server -o jsonpath='{.spec.host}')"
+printf "https://$(oc get route -n openshift-gitops openshift-gitops-server -o jsonpath='{.spec.host}')\n\n"
 
 echo "Admin ArgoCD password:"
 oc extract secret/openshift-gitops-cluster -n openshift-gitops --to=-
 
-echo "RHAI dashboard:
-print "https://$(oc get route -n openshift-gitops openshift-gitops-server -o jsonpath='{.spec.host}')"
+echo "RHAI dashboard:"
+printf "https://$(oc get route -n redhat-ods-applications rhods-dashboard -o jsonpath='{.spec.host}')\n\n"
