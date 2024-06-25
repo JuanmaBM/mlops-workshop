@@ -2,25 +2,25 @@ apiVersion: datasciencepipelinesapplications.opendatahub.io/v1alpha1
 kind: DataSciencePipelinesApplication
 metadata:
   finalizers:
-    - datasciencepipelinesapplications.opendatahub.io/finalizer
-  name: pipelines-definition
+  - datasciencepipelinesapplications.opendatahub.io/finalizer
+  name: dspa
   namespace: mlops-workshop
-  annotations:
-    argocd.argoproj.io/sync-wave: "4"
 spec:
   apiServer:
-    stripEOF: true
-    dbConfigConMaxLifetimeSec: 120
     applyTektonCustomResource: true
-    deploy: true
-    enableSamplePipeline: false
-    autoUpdatePipelineDefaultVersion: true
     archiveLogs: false
-    terminateStatus: Cancelled
-    enableOauth: true
-    trackArtifacts: true
+    autoUpdatePipelineDefaultVersion: true
+    caBundleFileMountPath: ""
+    caBundleFileName: ""
     collectMetrics: true
+    dbConfigConMaxLifetimeSec: 120
+    deploy: true
+    enableOauth: true
+    enableSamplePipeline: false
     injectDefaultScript: true
+    stripEOF: true
+    terminateStatus: Cancelled
+    trackArtifacts: true
   database:
     disableHealthCheck: false
     mariaDB:
@@ -28,14 +28,16 @@ spec:
       pipelineDBName: mlpipeline
       pvcSize: 10Gi
       username: mlpipeline
-  mlmd:
-    deploy: false
+  dspVersion: v2
   objectStorage:
     disableHealthCheck: false
+    enableExternalRoute: false
     externalStorage:
+      basePath: ""
       bucket: mlops-workshop
-      host: 'minio-ml-workshop.minio-system.svc.cluster.local:9000'
-      port: ''
+      host: minio-ml-workshop.minio-system.svc.cluster.local:9000
+      port: ""
+      region: eu-south-2
       s3CredentialsSecret:
         accessKey: AWS_ACCESS_KEY_ID
         secretKey: AWS_SECRET_ACCESS_KEY

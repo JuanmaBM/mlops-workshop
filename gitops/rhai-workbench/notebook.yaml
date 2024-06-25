@@ -4,7 +4,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "4"
     notebooks.opendatahub.io/inject-oauth: "true"
-    notebooks.opendatahub.io/last-image-selection: tensorflow:2023.2
+    notebooks.opendatahub.io/last-image-selection: tensorflow:2024.1
     notebooks.opendatahub.io/last-size-selection: Small
     opendatahub.io/accelerator-name: ""
     opendatahub.io/image-display-name: TensorFlow
@@ -13,6 +13,7 @@ metadata:
     openshift.io/display-name: hands-recognizer
   labels:
     app: hands-recognizer
+    app.kubernetes.io/instance: mlops-workshop
     opendatahub.io/dashboard: "true"
     opendatahub.io/odh-managed: "true"
     opendatahub.io/user: admin
@@ -32,11 +33,11 @@ spec:
                               --ServerApp.base_url=/notebook/mlops-workshop/hands-recognizer
                               --ServerApp.quit_button=False
         - name: JUPYTER_IMAGE
-          value: image-registry.openshift-image-registry.svc:5000/redhat-ods-applications/tensorflow:2023.2
+          value: image-registry.openshift-image-registry.svc:5000/redhat-ods-applications/tensorflow:2024.1
         envFrom:
         - secretRef:
             name: aws-connection-mlops-workshop-bucket
-        image: image-registry.openshift-image-registry.svc:5000/redhat-ods-applications/tensorflow:2023.2
+        image: image-registry.openshift-image-registry.svc:5000/redhat-ods-applications/tensorflow:2024.1
         imagePullPolicy: Always
         livenessProbe:
           failureThreshold: 3
