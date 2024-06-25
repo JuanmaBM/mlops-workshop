@@ -7,7 +7,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "6"
 spec:
-  backoffLimit: 4
+  backoffLimit: 1
   template:
     spec:
       serviceAccount: onboarding
@@ -33,5 +33,6 @@ spec:
         args:
         - -ec
         - |-
-          pod_name=$(oc get pods -n mlops-workshop --selector=app=hands-recognizer -o jsonpath='{.items[0].metadata.name}') && oc exec $pod_name -- rm -rf mlops-workshop && git clone https://github.com/JuanmaBM/mlops-workshop
+          pod_name=$(oc get pods -n mlops-workshop --selector=app=hands-recognizer -o jsonpath='{.items[0].metadata.name}')
+          oc exec $pod_name -- sh -c "rm -rf mlops-workshop && git clone https://github.com/JuanmaBM/mlops-workshop"
       restartPolicy: Never
