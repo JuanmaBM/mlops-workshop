@@ -9,3 +9,4 @@ resources:
   - redhat-ods-operator-project.yaml
   - redhat-ods-operator-group.yaml
   - redhat-openshift-service-mesh.yaml
+  - smcp.yaml
