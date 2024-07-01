@@ -9,4 +9,5 @@ resources:
   - serving-runtime.yaml
   - data-science-pipeline.yaml
   - inference-service.yaml
+  - pipeline-configuration.yaml
   - onboarding/
