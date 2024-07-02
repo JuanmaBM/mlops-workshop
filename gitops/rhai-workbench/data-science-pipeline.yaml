@@ -35,14 +35,14 @@ spec:
     externalStorage:
       basePath: ""
       bucket: mlops-workshop
-      host: minio-ml-workshop.minio-system.svc.cluster.local:9000
-      port: ""
+      host: minio-ml-workshop.minio-system.svc.cluster.local
+      port: "9000"
       region: eu-south-2
       s3CredentialsSecret:
         accessKey: AWS_ACCESS_KEY_ID
         secretKey: AWS_SECRET_ACCESS_KEY
         secretName: aws-connection-mlops-workshop-bucket
-      scheme: http
+      scheme: https
   persistenceAgent:
     deploy: true
     numWorkers: 2
