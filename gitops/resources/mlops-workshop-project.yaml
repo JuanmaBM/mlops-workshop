@@ -6,5 +6,6 @@ metadata:
   labels:
     kubernetes.io/metadata.name: mlops-workshop
     opendatahub.io/dashboard: "true"
+    modelmesh-enabled: 'true'
   name: mlops-workshop
 spec: {}
