@@ -1,7 +1,7 @@
 kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
-  name: minio-ml-workshop
+  name: minio-console
   namespace: minio-system
   labels:
     app.kubernetes.io/name: minio
@@ -16,4 +16,7 @@ spec:
     weight: 100
   port:
     targetPort: "web"
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
   wildcardPolicy: None

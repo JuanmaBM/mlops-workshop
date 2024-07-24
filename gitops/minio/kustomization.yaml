@@ -4,5 +4,6 @@ kind: Kustomization
 resources:
   - deployment.yaml
   - pvc.yaml
-  - route.yaml
+  - route-console.yaml
+  - route-api.yaml
   - service.yaml

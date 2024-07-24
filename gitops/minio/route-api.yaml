@@ -1,0 +1,22 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: minio-api
+  namespace: minio-system
+  labels:
+    app.kubernetes.io/name: minio
+    app.kubernetes.io/instance: min
+    app.kubernetes.io/version: "0.0.1"
+  annotations:
+    openshift.io/host.generated: 'true'
+spec:
+  to:
+    kind: Service
+    name: minio-ml-workshop
+    weight: 100
+  port:
+    targetPort: "api"
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  wildcardPolicy: None
